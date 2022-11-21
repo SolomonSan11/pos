@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../base/_functions.scss","../../base/_mixins.scss","custom-clipboard.scss","custom-clipboard.css","../../base/_color_variables.scss"],"names":[],"mappings":"AAAA;;;;CAAA;ACAA;;;;CAAA;ACMA;EACE,YAAA;ACKF;;ADFA;EACE,yBEuCW;EFtCX,aAAA;EACA,kBAAA;ACKF;ADHE;EACE,yBEkCS;AD7Bb;ADHI;EACE,eAAA;EACA,gBAAA;EACA,cEwBO;ADnBb","file":"custom-clipboard.css"}
