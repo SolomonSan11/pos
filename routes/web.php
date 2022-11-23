@@ -16,11 +16,14 @@ use App\Http\Controllers\Backend\DashboardController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/',[AuthController::class,'mainPage'])->name('mainPage');
 
 Route::get('register',[AuthController::class,"registerPage"])->name('auth#register');
+Route::post('register',[AuthController::class,"createUser"])->name('auth#create');
+
+Route::get('home',[AuthController::class,"home"])->name('auth#home');
+
+Route::post('logout',[AuthController::class,'logout'])->name('auth#logout');
 // Auth::routes();
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
