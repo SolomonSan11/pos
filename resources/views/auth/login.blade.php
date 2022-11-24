@@ -16,7 +16,7 @@
     <link rel="stylesheet" type="text/css" href="/backend/assets/css/forms/switches.css">
 </head>
 <body class="form">
-    
+
 
     <div class="form-container">
         <div class="form-form">
@@ -25,13 +25,14 @@
                     <div class="form-content">
 
                         <h1 class="">Log In to <a href="index.html"><span class="brand-name">CORK</span></a></h1>
-                        <p class="signup-link">New Here? <a href="auth_register.html">Create an account</a></p>
-                        <form class="text-left">
+                        <p class="signup-link">New Here? <a href="{{ route('auth#create') }}">Create an account</a></p>
+                        <form class="text-left" method="POST" action="{{ route('auth#login') }}">
+                            @csrf
                             <div class="form">
 
                                 <div id="username-field" class="field-wrapper input">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
-                                    <input id="username" name="username" type="text" class="form-control" placeholder="Username">
+                                    <input id="username" name="email" type="email" class="form-control" placeholder="email">
                                 </div>
 
                                 <div id="password-field" class="field-wrapper input mb-2">
@@ -49,7 +50,7 @@
                                     <div class="field-wrapper">
                                         <button type="submit" class="btn btn-primary" value="">Log In</button>
                                     </div>
-                                    
+
                                 </div>
 
                                 <div class="field-wrapper text-center keep-logged-in">
@@ -66,10 +67,10 @@
                                 </div>
 
                             </div>
-                        </form>                        
+                        </form>
                         <p class="terms-conditions">© 2019 All Rights Reserved. <a href="index.html">CORK</a> is a product of Designreset. <a href="javascript:void(0);">Cookie Preferences</a>, <a href="javascript:void(0);">Privacy</a>, and <a href="javascript:void(0);">Terms</a>.</p>
 
-                    </div>                    
+                    </div>
                 </div>
             </div>
         </div>
@@ -79,12 +80,12 @@
         </div>
     </div>
 
-    
+
     <!-- BEGIN GLOBAL MANDATORY SCRIPTS -->
     <script src="/backend/assets/js/libs/jquery-3.1.1.min.js"></script>
     <script src="/backend/bootstrap/js/popper.min.js"></script>
     <script src="/backend/bootstrap/js/bootstrap.min.js"></script>
-    
+
     <!-- END GLOBAL MANDATORY SCRIPTS -->
     <script src="/backend/assets/js/authentication/form-1.js"></script>
 

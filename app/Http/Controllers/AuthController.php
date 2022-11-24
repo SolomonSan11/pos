@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
@@ -26,6 +27,7 @@ class AuthController extends Controller
             'password' => 'required|min:6|max:20|regex:/^(?=.*?[A-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-])/',
             'passwordConfirmation' => 'required|min:6|max:20|same:password',
         ])->validate();
+
         $data = [
             'name' => $request->name,
             'email' => $request->email,
@@ -35,6 +37,10 @@ class AuthController extends Controller
         ];
 
         $user=User::create($data);
+
+        $success['token'] =  $user->createToken('MyAuthApp')->plainTextToken;
+
+        $success['name'] =  $user->name;
         // after register user will auto login
         auth()->login($user);
         return redirect()->route('auth#home');
@@ -51,5 +57,23 @@ class AuthController extends Controller
 
     public function mainPage(){
         return view('welcome');
+    }
+
+    public function loginPage(){
+        return view('auth.login');
+    }
+
+    public function login(Request $request)
+    {
+        if(Auth::attempt(['email' => $request->email, 'password' => $request->password])){
+            $authUser = Auth::user();
+            $success['token'] =  $authUser->createToken('MyAuthApp')->plainTextToken;
+            $success['name'] =  $authUser->name;
+
+            return redirect()->route('admin.dashboard');
+        }
+        else{
+            return back();
+        }
     }
 }

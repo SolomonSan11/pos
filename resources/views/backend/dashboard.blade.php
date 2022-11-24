@@ -33,7 +33,7 @@
                         <a class="dropdown-item d-flex" href="javascript:void(0);"><img src="assets/img/ca.png" class="flag-width" alt="flag"> <span class="align-self-center">&nbsp;English</span></a>
                     </div>
                 </li>
-                
+
                 <li class="nav-item dropdown message-dropdown">
                     <a href="javascript:void(0);" class="nav-link dropdown-toggle" id="messageDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-mail"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg><span class="badge badge-primary">3</span>
@@ -110,7 +110,7 @@
                             </div>
 
                             <div class="dropdown-item">
-                                <div class="media">                                    
+                                <div class="media">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-thumbs-up"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"></path></svg>
                                     <div class="media-body">
                                         <div class="notification-para"><span class="user-name">Kelly Young</span> likes your photo</div>
@@ -137,7 +137,7 @@
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user-check"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><polyline points="17 11 19 13 23 9"></polyline></svg>
                     </a>
                     <div class="dropdown-menu position-absolute e-animated e-fadeInUp" aria-labelledby="userProfileDropdown">
-                        <div class="user-profile-section">                            
+                        <div class="user-profile-section">
                             <div class="media mx-auto">
                                 <img src="assets/img/90x90.jpg" class="img-fluid mr-2" alt="avatar">
                                 <div class="media-body">
@@ -162,9 +162,13 @@
                             </a>
                         </div>
                         <div class="dropdown-item">
-                            <a href="auth_login.html">
+                            {{-- <a href="{{ route('auth#logout') }}">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-log-out"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg> <span>Log Out</span>
-                            </a>
+                            </a> --}}
+                            <form action="{{ route('auth#logout') }}" method="post">
+                            @csrf
+                                <button type="submit" class="btn btn-sm btn-danger"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-log-out"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg> <span>Log Out</span></button>
+                            </form>
                         </div>
                     </div>
                 </li>
@@ -182,7 +186,7 @@
 
         <!--  BEGIN SIDEBAR  -->
         <div class="sidebar-wrapper sidebar-theme">
-            
+
             <nav id="sidebar">
 
                 <ul class="navbar-nav theme-brand flex-row  text-center">
@@ -316,7 +320,7 @@
                             </li>
                             <li>
                                 <a href="component_modal.html"> Modals </a>
-                            </li>                            
+                            </li>
                             <li>
                                 <a href="component_cards.html"> Cards </a>
                             </li>
@@ -381,7 +385,7 @@
                             </li>
                             <li>
                                 <a href="element_breadcrumbs.html"> Breadcrumbs </a>
-                            </li>                            
+                            </li>
                             <li>
                                 <a href="element_buttons.html"> Buttons </a>
                             </li>
@@ -542,10 +546,10 @@
                             </li>
                             <li>
                                 <a href="form_maxlength.html"> Maxlength </a>
-                            </li>                          
+                            </li>
                             <li>
                                 <a href="form_checkbox_radio.html"> Checkbox &amp; Radio </a>
-                            </li>                            
+                            </li>
                             <li>
                                 <a href="form_switches.html"> Switches </a>
                             </li>
@@ -572,10 +576,10 @@
                             </li>
                         </ul>
                     </li>
-                    
+
                     <li class="menu menu-heading">
                         <div class="heading"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-circle"><circle cx="12" cy="12" r="10"></circle></svg><span>USER AND PAGES</span></div>
-                    </li>                    
+                    </li>
 
                     <li class="menu">
                         <a href="#users" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
@@ -628,7 +632,7 @@
                             </li>
                             <li>
                                 <a href="#pages-error" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"> Error <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"></polyline></svg> </a>
-                                <ul class="collapse list-unstyled sub-submenu" id="pages-error" data-parent="#pages"> 
+                                <ul class="collapse list-unstyled sub-submenu" id="pages-error" data-parent="#pages">
                                     <li>
                                         <a href="pages_error404.html"> 404 </a>
                                     </li>
@@ -749,14 +753,14 @@
                             </div>
                         </a>
                     </li>
-                    
+
                 </ul>
-                
+
             </nav>
 
         </div>
         <!--  END SIDEBAR  -->
-        
+
         <!--  BEGIN CONTENT AREA  -->
         <div id="content" class="main-content">
             <div class="layout-px-spacing">
@@ -870,7 +874,7 @@
 
                                 <div class="mt-container mx-auto">
                                     <div class="timeline-line">
-                                        
+
                                         <div class="item-timeline timeline-new">
                                             <div class="t-dot">
                                                 <div class="t-primary"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
@@ -956,8 +960,8 @@
                                                     <div class="badge badge-primary">Server</div>
                                                 </div>
                                             </div>
-                                        </div>                                      
-                                    </div>                                    
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -992,7 +996,7 @@
                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-compass"><circle cx="12" cy="12" r="10"></circle><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon></svg>
                                         </div>
                                         <div class="w-browser-details">
-                                            
+
                                             <div class="w-browser-info">
                                                 <h6>Safari</h6>
                                                 <p class="browser-count">25%</p>
@@ -1013,7 +1017,7 @@
                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-globe"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
                                         </div>
                                         <div class="w-browser-details">
-                                            
+
                                             <div class="w-browser-info">
                                                 <h6>Others</h6>
                                                 <p class="browser-count">15%</p>
@@ -1028,7 +1032,7 @@
                                         </div>
 
                                     </div>
-                                    
+
                                 </div>
 
                             </div>
@@ -1047,7 +1051,7 @@
                                         <p class="w-value">18.2%</p>
                                         <h5 class="">Engagement</h5>
                                     </div>
-                                    <div class="widget-content">    
+                                    <div class="widget-content">
                                         <div class="w-chart">
                                             <div id="hybrid_followers3"></div>
                                         </div>
@@ -1063,7 +1067,7 @@
                                         <p class="w-value">31.6K</p>
                                         <h5 class="">Followers</h5>
                                     </div>
-                                    <div class="widget-content">    
+                                    <div class="widget-content">
                                         <div class="w-chart">
                                             <div id="hybrid_followers"></div>
                                         </div>
@@ -1079,7 +1083,7 @@
                                         <p class="w-value">1,900</p>
                                         <h5 class="">Referral</h5>
                                     </div>
-                                    <div class="widget-content">    
+                                    <div class="widget-content">
                                         <div class="w-chart">
                                             <div id="hybrid_followers1"></div>
                                         </div>
@@ -1142,7 +1146,7 @@
                                 </div>
 
                                 <div class="w-content">
-                                    <div class="">                                            
+                                    <div class="">
                                         <p class="task-left">8</p>
                                         <p class="task-completed"><span>12 Done</span></p>
                                         <p class="task-hight-priority"><span>3 Task</span> with High priotity</p>

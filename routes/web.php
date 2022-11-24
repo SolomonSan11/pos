@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\Backend\DashboardController;
+use App\Http\Controllers\backend\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,6 +24,12 @@ Route::post('register',[AuthController::class,"createUser"])->name('auth#create'
 Route::get('home',[AuthController::class,"home"])->name('auth#home');
 
 Route::post('logout',[AuthController::class,'logout'])->name('auth#logout');
+
+Route::get('login',[AuthController::class,'loginPage'])->name('auth#loginPage');
+Route::post('login',[AuthController::class,'login'])->name('auth#login');
+
+Route::get('dashboard',[DashboardController::class,'index'])->name('auth#dashboard');
+
 // Auth::routes();
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
