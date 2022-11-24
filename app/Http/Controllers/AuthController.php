@@ -50,8 +50,8 @@ class AuthController extends Controller
         return view('home');
     }
 
-    public function logout(){
-        auth()->logout();
+    public function logout(Request $request){
+        auth()->user()->tokens()->delete(); //work when logout
         return redirect()->route('mainPage');
     }
 
@@ -65,12 +65,17 @@ class AuthController extends Controller
 
     public function login(Request $request)
     {
+        Validator::make($request->all(),[
+            'email' => 'required|email',
+            'password' => 'required',
+        ])->validate();
+
         if(Auth::attempt(['email' => $request->email, 'password' => $request->password])){
             $authUser = Auth::user();
             $success['token'] =  $authUser->createToken('MyAuthApp')->plainTextToken;
             $success['name'] =  $authUser->name;
 
-            return redirect()->route('admin.dashboard');
+            return redirect()->route('auth#dashboard');
         }
         else{
             return back();
